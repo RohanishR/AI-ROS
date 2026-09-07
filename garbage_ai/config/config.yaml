@@ -1,0 +1,43 @@
+# Garbage AI Configuration
+
+model:
+  path: "yolov8n.pt" # Use yolov8n.pt for lightweight inference, will be downloaded automatically by ultralytics if missing
+  img_size: 640
+
+inference:
+  confidence_threshold: 0.60
+  device: "cuda" # Use cuda if available, otherwise CPU
+
+# Mapping from YOLO detected object classes to our 5 final categories
+# The keys inside each category correspond to the classes your YOLO model has been trained on.
+category_mapping:
+  Plastic:
+    - "plastic_bottle"
+    - "clear_plastic_bottle"
+    - "plastic_bag"
+    - "plastic_container"
+    - "bottle"  # Common COCO class fallback
+    - "cup"     # Common COCO class fallback
+  Paper:
+    - "newspaper"
+    - "cardboard"
+    - "paper_cup"
+    - "paper"
+    - "book"    # Common COCO class fallback
+  Metal:
+    - "aluminum_can"
+    - "metal_can"
+    - "scrap_metal"
+  Glass:
+    - "glass_bottle"
+    - "glass_cup"
+    - "wine_glass"
+  Organic:
+    - "banana_peel"
+    - "apple_core"
+    - "food_waste"
+    - "apple"   # Common COCO class fallback
+    - "banana"  # Common COCO class fallback
+    - "orange"  # Common COCO class fallback
+    - "broccoli" # Common COCO class fallback
+    - "carrot"  # Common COCO class fallback
